@@ -491,18 +491,16 @@ staty = [
 
 odpoved = input('Zadej region, který tě zajímá: ')
 
-slovnik = {}
+seznam_statu = []
 for i in staty:
-    region = i['region']
-    name = i['name']
-    slovnik[region] = name
-    if odpoved == region:
-        for h in slovnik:
-            print(slovnik[region])
-    else:
-        print('Neznámý region.')
+    if i['region'] == odpoved:
+        seznam_statu.append(i['name'])
 
+seznam_regionu = []
+for i in staty:
+    seznam_regionu.append(i['region'])
 
-# Vytvoř program, který se uživatele zeptá na region, který ho zajímá. 
-# Následně projdi seznam a vypiš všechny státy, které leží v regionu. 
-# Pokud program žádný stát pro daný region nenajde, vypiš text "Neznámý region".
+if odpoved in seznam_regionu:
+    print(f'Státy v regionu {odpoved} jsou tyto: {seznam_statu}')
+else:
+    print('Neznámý region.')
